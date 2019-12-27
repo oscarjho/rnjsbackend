@@ -1,9 +1,15 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
 
 const users = require('./routes/api/users');
 
 const app = express();
+
+//support parsing of application/x-www-form-urlencoded post data
+app.use(bodyParser.urlencoded({ extended: false }));
+// support parsing of application/json type post data
+app.use(bodyParser.json());
 
 const port = process.env.PORT || 5000;
 

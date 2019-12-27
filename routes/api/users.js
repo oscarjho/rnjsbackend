@@ -15,7 +15,7 @@ router.get('/test', (req, res) => res.json({ msg: 'Users Works' }));
 router.post(
   '/register',
   (req,res) => {
-    console.log(req);
+    console.log(req.body);
   }
 );
 
