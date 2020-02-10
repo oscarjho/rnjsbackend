@@ -12,6 +12,12 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // support parsing of application/json type post data
 app.use(bodyParser.json());
 
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*"); // update to match the domain you will make the request from
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+
 const port = process.env.PORT || 5000;
 
 // DB Config
